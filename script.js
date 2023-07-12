@@ -31,11 +31,11 @@ const newPassword = () => {
     });
 
     for (let i = 0; i < passLength; i++) {
-        let randomChar = staticPassword[Math.floor(Math.random() * staticPassword.length)];
+        let randomCharcter = staticPassword[Math.floor(Math.random() * staticPassword.length)];
         if (excludeDuplicate) {
-            !randomPassword.includes(randomChar) || randomChar == " " ? randomPassword += randomChar : i--;
+            !randomPassword.includes(randomCharcter) || randomCharcter == " " ? randomPassword += randomCharcter : i--;
         } else {
-            randomPassword += randomChar;
+            randomPassword += randomCharcter;
         }
     }
     passwordInput.value = randomPassword;
@@ -43,7 +43,7 @@ const newPassword = () => {
 }
 
 const updatePasswordIndicator = () => {
-    passIndicator.id = lengthSlider.value <= 10 ? "low" : lengthSlider.value <= 20 ? "medium" : "high";
+    passIndicator.id = lengthSlider.value <= 10 ? "weak" : lengthSlider.value <= 20 ? "medium" : "strong";
 }
 
 const updateSlider = () => {
@@ -60,7 +60,7 @@ const copyPassword = () => {
     setTimeout(() => {
         copyIcon.innerText = "copy_all";
         copyIcon.style.color = "#707070";
-    }, 1500);
+    }, 2000);
 }
 
 copyIcon.addEventListener("click", copyPassword);
